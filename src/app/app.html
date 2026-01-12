@@ -1,86 +1,88 @@
-<div class="container mt-4">
-  <div class="d-flex gap-5 align-items-center">
-    <div class="bg-info p-2">
-      <h1>Coding Factory</h1>
-      <h2>Introduction to Angular</h2>
-    </div>
-    <div class="bg-success p-2 text-light">
-      <h3>Welcome to Angular</h3>
-      <p>Hello {{name}}, nice to meet you</p>
-    </div>
-  </div>
-</div>
-
-<!-- Step 2 Component -->
-
-<div class="container mt-4">
-  <h3>From Step2 Component</h3>
-  <div class="d-flex gap-5 text-nowrap">
-    <app-step2-person-table></app-step2-person-table>
-    <app-step2-person-table></app-step2-person-table>
-    <app-step2-person-table></app-step2-person-table>
-
-  </div>
-</div>
-
-<!-- Step 3 Component -->
-
-<div class="container mt-4">
-  <h3>From Step3 Component</h3>
-  <div class="d-flex gap-5  text-nowrap">
-    <app-step3-person-table-input [person]="person1"></app-step3-person-table-input>
-    <app-step3-person-table-input></app-step3-person-table-input>
-    <app-step3-person-table-input [person]="person2"></app-step3-person-table-input>
-
-  </div>
-</div>
-
-
-<!-- Step 4 @For Component -->
-<div class="container mt-4">
-  <h3> From Step 4 Component</h3>
-  <app-step4-for-directive></app-step4-for-directive>
-</div>
-
-
-<!-- Step 5 Event Bind -->
-
-<div class="container mt-4">
-  <h3>From Step 5 Event Bind</h3>
-  <app-step5-event-bind></app-step5-event-bind>
-</div>
-
-
-<!-- Step 6 Routing -->
- <div class="container mt-2">
-  <div class="d-flex flex-column gap-2">
-    <nav class="navbar navbar-dark bg-primary justify-content-between">
-      <a class="navbar-brand ms3 cursor-pointer" role="button">CF - Angular Introduction</a>
-    </nav>
-    <div class="d-flex flex-row gap-2">
-      <div class="d-flex flex-column text-nowrap bg-light p-2">
-        <span role="button" routerLink="person-table-example">Step 2 Person Table</span>
-        <span role="button" routerLink="component-input-example">Step 3 Component Input</span>
+@if (!doNotShowRest){
+  <div class="container mt-4">
+    <div class="d-flex gap-5 align-items-center">
+      <div class="bg-info p-2">
+        <h1>Coding Factory</h1>
+        <h2>Introduction to Angular</h2>
       </div>
-      <span class="flex-grow-1 p-2 text-nowrap">
-        <router-outlet></router-outlet>
-      </span>
+      <div class="bg-success p-2 text-light">
+        <h3>Welcome to Angular</h3>
+        <p>Hello {{name}}, nice to meet you</p>
+      </div>
     </div>
-
   </div>
- </div>
 
+  <!-- Step 2 Component -->
+
+  <div class="container mt-4">
+    <h3>From Step2 Component</h3>
+    <div class="d-flex gap-5 text-nowrap">
+      <app-step2-person-table></app-step2-person-table>
+      <app-step2-person-table></app-step2-person-table>
+      <app-step2-person-table></app-step2-person-table>
+
+    </div>
+  </div>
+
+  <!-- Step 3 Component -->
+
+  <div class="container mt-4">
+    <h3>From Step3 Component</h3>
+    <div class="d-flex gap-5  text-nowrap">
+      <app-step3-person-table-input [person]="person1"></app-step3-person-table-input>
+      <app-step3-person-table-input></app-step3-person-table-input>
+      <app-step3-person-table-input [person]="person2"></app-step3-person-table-input>
+
+    </div>
+  </div>
+
+
+  <!-- Step 4 @For Component -->
+  <div class="container mt-4">
+    <h3> From Step 4 Component</h3>
+    <app-step4-for-directive></app-step4-for-directive>
+  </div>
+
+
+  <!-- Step 5 Event Bind -->
+
+  <div class="container mt-4">
+    <h3>From Step 5 Event Bind</h3>
+    <app-step5-event-bind></app-step5-event-bind>
+  </div>
+
+
+  <!-- Step 6 Routing -->
+  <div class="container mt-2">
+    <div class="d-flex flex-column gap-2">
+      <nav class="navbar navbar-dark bg-primary justify-content-between">
+        <a class="navbar-brand ms3 cursor-pointer" role="button">CF - Angular Introduction</a>
+      </nav>
+      <div class="d-flex flex-row gap-2">
+        <div class="d-flex flex-column text-nowrap bg-light p-2">
+          <span role="button" routerLink="person-table-example">Step 2 Person Table</span>
+          <span role="button" routerLink="component-input-example">Step 3 Component Input</span>
+        </div>
+        <span class="flex-grow-1 p-2 text-nowrap">
+          <router-outlet></router-outlet>
+        </span>
+      </div>
+
+    </div>
+  </div>
+} @else {
 
  <!-- FINAL MENU -->
 
- <div class="container mt-2">
-  <div class="d-flex flex-column gap-2">
-    <app-navbar></app-navbar>
-    <div class="d-flex flex-row gap-2">
-      <app-list-group-menu class="w-25 text-nowrap"></app-list-group-menu>
-      <div class="flex-grow-1 p-2 text-nowrap w-75">
-        <router-outlet></router-outlet>
-      </div> 
+  <div class="container mt-2">
+    <div class="d-flex flex-column gap-2">
+      <app-navbar></app-navbar>
+      <div class="d-flex flex-row gap-2">
+        <app-list-group-menu class="w-25 text-nowrap"></app-list-group-menu>
+        <div class="flex-grow-1 p-2 text-nowrap w-75">
+          <router-outlet></router-outlet>
+        </div> 
+      </div>
     </div>
   </div>
- </div>
+}
