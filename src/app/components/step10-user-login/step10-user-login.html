@@ -1,1 +1,23 @@
-<p>step10-user-login works!</p>
+<h4> User Login</h4>
+
+<form [formGroup]="form" class="d-flex flex-column gap-3 w-50" >
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" matInput formControlName="username">
+        <mat-error>Username is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input class="" type="text" matInput formControlName="password">
+        <mat-error>Password is required.</mat-error>
+    </mat-form-field>
+</form>
+
+
+<button mat-flat-button color="primary" (click)="onSubmit()">Submint</button>
+
+@if (invalidLogin) {
+    <div class="alert alert-danger mt-4">
+        <strong>Error:</strong> Invalid Username or password.
+    </div>
+}

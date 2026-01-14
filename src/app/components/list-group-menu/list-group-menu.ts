@@ -16,6 +16,7 @@ export class ListGroupMenu {
     {text:'Step 6 Simple datatable', link:'simple-datatable-example'},
     {text:'Step 7 Component Output', link:'component-output-example'},
     {text:'Step 8 Template Driven Forms', link:'template-driven-form-example'},
-    {text:'Step 9 Reactive Froms', link: 'reactive-form-example'}
+    {text:'Step 9 Reactive Froms', link: 'reactive-form-example'},
+    {text:'Step 10 User Login', link:'login-example'}
   ]
 }
