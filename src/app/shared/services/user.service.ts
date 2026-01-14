@@ -42,7 +42,7 @@ export class UserService {
   logoutUser(){
     this.user.set(null);
     localStorage.removeItem('access_token');
-    this.router.navigate(['login-example'])
+    this.router.navigate(['welcome'])
 
   }
 }

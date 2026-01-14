@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-list-group-menu',
@@ -8,6 +9,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './list-group-menu.css',
 })
 export class ListGroupMenu {
+
+  userService = inject(UserService);
+  user = this.userService.user;
+
   menu = [
     {text:"Step 2 Person Table", link:'person-table-example'},
     {text:"Step 3 Component Input", link:'component-input-example'},

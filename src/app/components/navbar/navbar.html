@@ -3,12 +3,12 @@
       @if (user()){
             <span class="me-3 d-flex gap-2 text-light">
                   Welcome, {{user()?.username}}
-                  <span role="button" (click)="logout()">Logout</span>
+                  <span role="button" (click)="logout()" routerLink="">Logout</span>
             </span>
       } @else {
             <span class="text-light me-3 d-flex gap-2 align-items-center"
             role="button" 
             routerLink="login-example"
-            >LogIn</span>
+            >Login</span>
       }
 </nav>
