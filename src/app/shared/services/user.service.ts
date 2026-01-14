@@ -2,7 +2,7 @@ import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Credentials } from '../interfaces/user';
 import { IUser, LoggedInUser } from '../interfaces/user';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';
 
