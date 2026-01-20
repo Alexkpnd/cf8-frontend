@@ -22,6 +22,7 @@ export class ListGroupMenu {
     {text:'Step 7 Component Output', link:'component-output-example'},
     {text:'Step 8 Template Driven Forms', link:'template-driven-form-example'},
     {text:'Step 9 Reactive Froms', link: 'reactive-form-example'},
-    {text:'Step 10 User Login', link:'login-example'}
+    {text:'Step 10 User Login', link:'login-example'},
+    {text:'Step 11 Create User', link:'user-create-form-example'}
   ]
 }

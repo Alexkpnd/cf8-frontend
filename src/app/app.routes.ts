@@ -9,6 +9,9 @@ import { Step7ComponentOutput } from './components/step7-component-output/step7-
 import { Step8TemplateDrivenForms } from './components/step8-template-driven-forms/step8-template-driven-forms';
 import { Step9ReactiveForms } from './components/step9-reactive-forms/step9-reactive-forms';
 import { Step10UserLogin } from './components/step10-user-login/step10-user-login';
+import { Step11CreateUser } from './components/step11-create-user/step11-create-user';
+import { authGuard } from './shared/guards/auth-guard';
+import { adminRoleGuard } from './shared/guards/admin-role-guard';
 
 export const routes: Routes = [
     {path:'person-table-example', component: Step2PersonTable},
@@ -20,6 +23,7 @@ export const routes: Routes = [
     {path:'template-driven-form-example', component:Step8TemplateDrivenForms},
     {path: 'login-example', component:Step10UserLogin},
     {path:'reactive-form-example', component: Step9ReactiveForms},
+    {path:'user-create-form-example', component: Step11CreateUser, canActivate:[authGuard, adminRoleGuard]},
     {path:'welcome', component: Welcome},
     {path:'',redirectTo:'welcome', pathMatch:'full'}  // αλλιως ,component: Welcome
     

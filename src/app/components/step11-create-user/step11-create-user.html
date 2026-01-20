@@ -1,0 +1,106 @@
+<div>
+    <h4>Create User</h4>
+
+    @if (registratonStatus.success) {
+        <div class="alert alert-success mt-2 w-50">
+            {{registratonStatus.message}}
+        </div>
+    } 
+    @if (!registratonStatus.success && registratonStatus.message){
+        <div class="alert alert-danger mt-2 w-50">
+            Error: Creation Failed {{registratonStatus.message}}
+        </div>
+    }
+
+    {{form.value | json}}
+    <form class="d-flex flex-column" [formGroup]="form">
+        <mat-form-field class="rounded">
+            <mat-label>Username</mat-label>
+            <input type="text", matInput formControlName="username">
+            <mat-error>Username is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label> Firstname</mat-label>
+            <input type="text" matInput formControlName="firstname">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Lastname</mat-label>
+            <input type="text" matInput formControlName="lastname">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input type="type text" matInput formControlName="email">
+            <mat-error>Email is Required</mat-error>
+        </mat-form-field>
+
+        <div class="d-flex flex-column" formGroupName="address">
+            <mat-form-field>
+                <mat-label>Area</mat-label>
+                <input type="text" matInput formControlName="area">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Street</mat-label>
+                <input type="text" matInput formControlName="street">
+            </mat-form-field>
+        </div>
+
+        <div formArrayName="phone"> <!-- εδώ θέλει στο component να εκχωρίσουμε σε μεταβλητή "phone" τα περιεχόμενα του πεδίου phone της φόρμας μας -->
+            @for (p of phone.controls; let i=$index; track i ) {
+                <div [formGroupName]="i" class="d-flex gap-3 align-items-center">
+                    <mat-form-field>
+                        <mat-label>Type</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option value="mobile">Mobile</mat-option>
+                            <mat-option value="work">Work</mat-option>
+                            <mat-option value="home">Home</mat-option>
+                        </mat-select>
+                        <mat-error>Type is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Number</mat-label>
+                        <input type="text" matInput formControlName="number">
+                        <mat-error>Number is missing or invalid </mat-error>
+                    </mat-form-field>
+
+                    @if (phone.controls.length > 1 && i!== 0) {
+                        <span role="button" class="cursor-pointer" (click)="deletePhoneNumber(i)">Delete</span>
+                    }
+                    
+                    @if (phone.controls[i].valid) {
+                        <span role="button" class="cursor-pointer" (click)="addPhoneNumber()">Add</span>
+                    }
+                </div>
+            }
+        </div>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="text" matInput formControlName="password">
+            @if (form.get('password')?.touched && form.get("password")?.hasError("required")) {
+                <mat-error>Password is missing</mat-error>
+            } @else if (form.get('password')?.touched && form.get("password")?.hasError("minlength")) {
+                <mat-error>Password is invalid</mat-error>
+            }
+            
+        </mat-form-field>
+
+            <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input type="text" matInput formControlName="confirmPassword">
+            @if (form.get('confirmPassword')?.hasError('passwordMissmatch')) {
+                <mat-error>Passwords do not match!</mat-error>
+            } @else if (form.get('confirmPassword')?.touched && form.get("confirmPassword")?.invalid) {
+                <mat-error> Password is missing or invalid</mat-error>
+            }
+        </mat-form-field>
+
+
+    </form>
+            <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="form.invalid">
+            Submit
+        </button>
+</div>

@@ -33,11 +33,11 @@ export class Step10UserLogin {
       // })
       .subscribe({
         next: (response) => {
-          console.log(response.token)
+          //console.log(response.token)
           this.invalidLogin = false;
           const access_token = response.token;
           const decodedTokenSubject = jwtDecode(access_token) as unknown as LoggedInUser;
-          console.log(decodedTokenSubject)
+          //console.log(decodedTokenSubject)
 
           localStorage.setItem('access_token', access_token)
           this.userService.user.set({
