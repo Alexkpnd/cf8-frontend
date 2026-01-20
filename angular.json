@@ -16,7 +16,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/CF8-Frontend",
+            "outputPath": "dist/CF8-frontend",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
